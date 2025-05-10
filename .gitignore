@@ -1,3 +1,4 @@
 *.env
 config.js
 test.json
+scripts/background.js
