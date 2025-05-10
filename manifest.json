@@ -3,8 +3,8 @@
   "manifest_version": 3,
   "name": "Summarizer",
   "version": "1.0",
-  "permissions": ["storage", "activeTab", "sidePanel"],
-  "host_permissions": ["https://api.openai.com/*"],
+  "permissions": ["storage", "activeTab", "sidePanel", "tabs"],
+  "host_permissions": ["https://api.openai.com/*", "<all_urls>"],
   "action": {
     "default_title": "Open Summarizer",
     "default_icon": "images/extension_logo.png"
@@ -15,5 +15,11 @@
   },
   "background": {
   "service_worker": "scripts/background.js"
-}
+},
+"web_accessible_resources": [
+  {
+    "resources": ["scripts/sidepanel.js"],
+    "matches": ["<all_urls>"]
+  }
+]
 }

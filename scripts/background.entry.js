@@ -4,7 +4,8 @@
 
 // Ensure that we load the config.js file as a Global 
 // #DEVELOPMENT ONLY - load API_KEY
-import { API_KEY } from "../config.js"
+// const API_KEY = __API_KEY__;
+const API_KEY = process.env.API_KEY;
 
 // Promise turned into a function to be later called 
 function chatGPTSummarizer(text, callback) {  // a function that takes a url and a callback
@@ -34,7 +35,7 @@ function chatGPTSummarizer(text, callback) {  // a function that takes a url and
     });
   }
 
-  chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) { //
+  chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) { // when a message is sent to this, run this function
     if (request.action === "summarize" && request.content) { //
       chatGPTSummarizer(request.content, function (summary) { //
         sendResponse({ summary: summary }); //
