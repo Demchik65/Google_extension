@@ -12,5 +12,8 @@
   "side_panel": {
     "default_path": "scripts/sidepanel.html",
     "openPanelOnActionClick": true
-  }
+  },
+  "background": {
+  "service_worker": "scripts/background.js"
+}
 }
